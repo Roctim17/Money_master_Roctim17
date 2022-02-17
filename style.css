@@ -1,3 +1,23 @@
 .error-letter{
     display: none;
 }
+/* ---------------------
+    Media Queries 
+-----------------------*/
+/* Mobile Devices */
+@media only screen and (max-width:688px) {
+    .save-part{
+        flex-direction:column;
+        justify-content: center;
+        padding:  auto;
+    }
+    .save-input{
+        flex-direction:column;
+    }
+    .save-input h3{
+        justify-content: center;
+    }
+    .save-button{
+        flex-direction:column;
+    }
+}

@@ -139,11 +139,17 @@
                             </div>
                             <!-- Expenses End-->
                             <!-- Calculate -->
-                            <button id="calculate" class="btn btn-info p-3 m-3 px-5">Calculate</button>
+                            <button id="calculate" class="btn btn-info py-1 px-5 text-light">
+                                <h5>Calculate</h5>
+                            </button>
                             <div class="p-5">
                                 <h3 id="error-expenses"
                                     class="error-letter border rounded bg-warning text-light p-1 m-auto">
                                     (Please fill the Empty field & enter minimun Value 0)
+                                </h3>
+                                <h3 id="error-expenses-income"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    (Your Expenses is more than your income)
                                 </h3>
                                 <h2 class="pb-3">Total Expenses: <span id="total-expenses"></span>
                                 </h2>
@@ -159,23 +165,23 @@
 
                             <!-- Calculate End-->
                             <!-- Save -->
-                            <div class="d-flex justify-content-center">
-                                <div class="d-flex justify-content-center p-3">
+                            <div class="d-flex justify-content-center save-part">
+                                <div class="d-flex justify-content-center p-3 save-input">
                                     <div class="">
                                         <h3 class="input-group"> Save: </h3>
                                     </div>
-                                    <div class=""><input id="saving" class="bg-light input-group-text" type="text">
+                                    <div class=""><input id="saving" class="bg-light input-group-text m-auto"
+                                            type="text">
                                     </div>
-
                                 </div>
-
-
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center save-button">
                                     <div class=" p-3">
                                         <h4>%</h4>
                                     </div>
                                     <div class="justify-content-end p-3"><button id="save"
-                                            class="btn btn-info py-2 px-5 justify-content-end ">Save</button>
+                                            class="btn btn-info py-1 px-5 justify-content-end text-light">
+                                            <h5>Save</h5>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -194,18 +200,6 @@
                             </div>
                         </div>
 
-                    </div>
-                </div>
-                <!-- Error Massage -->
-                <div class="row text-center">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="errormassage">
-                            <h3 class="border rounded bg-warning text-light p-3 m-auto">You Have not enpugh Balance</h3>
-                            <h3 class="border rounded bg-warning text-light p-3 m-auto">You Have not enpugh Balance</h3>
-                            <h3 class="border rounded bg-warning text-light p-3 m-auto">You Have not enpugh Balance</h3>
-                        </div>
-                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </div>

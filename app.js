@@ -21,6 +21,7 @@ function income() {
     }
     return parseInt(totalIncome);
 }
+// food
 function food() {
     const foodInput = document.getElementById('food').value;
     if (foodInput >= 0) {
@@ -41,6 +42,7 @@ function food() {
 
     return parseInt(foodInput);
 }
+// rent
 function rent() {
     const rentInput = document.getElementById('rent').value;
     if (rentInput >= 0) {
@@ -60,6 +62,7 @@ function rent() {
 
     return parseInt(rentInput);
 }
+// clothes
 function clothes() {
     const clothesInput = document.getElementById('clothes').value;
     if (clothesInput >= 0) {
@@ -82,26 +85,38 @@ function clothes() {
 
 // Total Expenses
 function expenses() {
+
     totalExpenses = food() + rent() + clothes();
     return totalExpenses;
 }
 
 // Balance
 function netIncome() {
-    const balance = income() - expenses();
+    const balance = 0;
     if (income() > expenses()) {
+        balance = income() - expenses();
         document.getElementById('error-balance').style.display = "none";
     }
     else if (income() < expenses()) {
         document.getElementById('error-balance').style.display = "block";
+
     }
     return balance;
 }
 
 // calculate btn click function
 document.getElementById('calculate').addEventListener("click", function () {
-    document.getElementById('total-expenses').innerText = expenses();
     document.getElementById('balance').innerText = netIncome();
+    if (income() > expenses()) {
+        document.getElementById('total-expenses').innerText = expenses();
+        document.getElementById('error-expenses-income').style.display = "none";
+    }
+    else {
+        document.getElementById('error-expenses-income').style.display = "block";
+    }
+
+    // document.getElementById('total-expenses').innerText = expenses();
+
     console.log(clothes())
 })
 
