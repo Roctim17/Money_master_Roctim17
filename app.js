@@ -25,12 +25,18 @@ function food() {
     const foodInput = document.getElementById('food').value;
     if (foodInput >= 0) {
         document.getElementById('error-food').style.display = "none";
+        document.getElementById('error-food-minas').style.display = "none";
+        document.getElementById('error-food-string').style.display = "none";
     }
     else if (foodInput < 0) {
-        document.getElementById('error-food').style.display = "block";
+        document.getElementById('error-food-minas').style.display = "block";
+        document.getElementById('error-food-string').style.display = "none";
+
     }
     else if (foodInput != "number") {
-        document.getElementById('error-food').style.display = "block";
+        document.getElementById('error-food-string').style.display = "block";
+        document.getElementById('error-food-minas').style.display = "none";
+
     }
 
     return parseInt(foodInput);
@@ -39,12 +45,17 @@ function rent() {
     const rentInput = document.getElementById('rent').value;
     if (rentInput >= 0) {
         document.getElementById('error-rent').style.display = "none";
+        document.getElementById('error-rent-minas').style.display = "none";
+        document.getElementById('error-rent-string').style.display = "none";
     }
     else if (rentInput < 0) {
-        document.getElementById('error-rent').style.display = "block";
+        document.getElementById('error-rent-minas').style.display = "block";
+        document.getElementById('error-rent-string').style.display = "none";
     }
     else if (rentInput != "number") {
-        document.getElementById('error-rent').style.display = "block";
+        document.getElementById('error-rent-string').style.display = "block";
+        document.getElementById('error-rent-minas').style.display = "none";
+
     }
 
     return parseInt(rentInput);
@@ -53,18 +64,21 @@ function clothes() {
     const clothesInput = document.getElementById('clothes').value;
     if (clothesInput >= 0) {
         document.getElementById('error-clothes').style.display = "none";
+        document.getElementById('error-clothes-minas').style.display = "none";
+        document.getElementById('error-clothes-string').style.display = "none";
+        document.getElementById('error-expenses').style.display = "none";
     }
     else if (clothesInput < 0) {
-        document.getElementById('error-clothes').style.display = "block";
+        document.getElementById('error-clothes-minas').style.display = "block";
+        document.getElementById('error-clothes-string').style.display = "none";
     }
     else if (clothesInput != "number") {
-        document.getElementById('error-clothes').style.display = "block";
+        document.getElementById('error-clothes-string').style.display = "block";
+        document.getElementById('error-clothes-minas').style.display = "none";
     }
 
     return parseInt(clothesInput);
 }
-
-
 
 // Total Expenses
 function expenses() {
@@ -79,7 +93,6 @@ function netIncome() {
         document.getElementById('error-balance').style.display = "none";
     }
     else if (income() < expenses()) {
-
         document.getElementById('error-balance').style.display = "block";
     }
     return balance;
@@ -89,9 +102,7 @@ function netIncome() {
 document.getElementById('calculate').addEventListener("click", function () {
     document.getElementById('total-expenses').innerText = expenses();
     document.getElementById('balance').innerText = netIncome();
-
-    console.log(food())
-
+    console.log(clothes())
 })
 
 // Saveing % function
@@ -104,7 +115,7 @@ function saveing() {
 // saveAmount function
 function saveAmount() {
     const saveOutput = income() * saveing();
-    return saveOutput;
+    return saveOutput.toFixed(2);
 }
 
 // remainingBalance function
