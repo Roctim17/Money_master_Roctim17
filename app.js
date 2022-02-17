@@ -95,10 +95,16 @@ function netIncome() {
     balance = income() - expenses();
     if (income() > expenses()) {
         document.getElementById('error-balance').style.display = "none";
+        document.getElementById('error-balance-value').style.display = "none";
     }
     else if (income() < expenses()) {
         document.getElementById('error-balance').style.display = "block";
+        document.getElementById('error-balance-value').style.display = "none";
 
+    }
+    else {
+        document.getElementById('error-balance-value').style.display = "block";
+        balance = 0;
     }
 
     return balance;
@@ -107,13 +113,18 @@ function netIncome() {
 // calculate btn click function
 document.getElementById('calculate').addEventListener("click", function () {
     document.getElementById('balance').innerText = netIncome();
-    if (income() > expenses()) {
+    if (income() < expenses()) {
+        document.getElementById('error-expenses-income').style.display = "block";
+        document.getElementById('total-expenses').innerText = '';
+
+    }
+    else if (income() > expenses()) {
         document.getElementById('total-expenses').innerText = expenses();
         document.getElementById('error-expenses-income').style.display = "none";
     }
     else {
-        document.getElementById('error-expenses-income').style.display = "block";
         document.getElementById('total-expenses').innerText = '';
+        document.getElementById('error-expenses-income').style.display = "none";
     }
 })
 
