@@ -20,6 +20,7 @@ function income() {
         document.getElementById('error-text').style.display = "block";
     }
     return parseInt(totalIncome);
+
 }
 // food
 function food() {
@@ -85,22 +86,21 @@ function clothes() {
 
 // Total Expenses
 function expenses() {
-
     totalExpenses = food() + rent() + clothes();
     return totalExpenses;
 }
 
 // Balance
 function netIncome() {
-    const balance = 0;
+    balance = income() - expenses();
     if (income() > expenses()) {
-        balance = income() - expenses();
         document.getElementById('error-balance').style.display = "none";
     }
     else if (income() < expenses()) {
         document.getElementById('error-balance').style.display = "block";
 
     }
+
     return balance;
 }
 
@@ -113,11 +113,8 @@ document.getElementById('calculate').addEventListener("click", function () {
     }
     else {
         document.getElementById('error-expenses-income').style.display = "block";
+        document.getElementById('total-expenses').innerText = '';
     }
-
-    // document.getElementById('total-expenses').innerText = expenses();
-
-    console.log(clothes())
 })
 
 // Saveing % function
