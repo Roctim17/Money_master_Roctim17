@@ -19,41 +19,118 @@ function income() {
     else {
         document.getElementById('error-text').style.display = "block";
     }
-    return totalIncome
+    return parseInt(totalIncome);
 }
+function food() {
+    const foodInput = document.getElementById('food').value;
+    if (foodInput >= 0) {
+        document.getElementById('error-food').style.display = "none";
+    }
+    else if (foodInput < 0) {
+        document.getElementById('error-food').style.display = "block";
+    }
+    else if (foodInput != "number") {
+        document.getElementById('error-food').style.display = "block";
+    }
+
+    return parseInt(foodInput);
+}
+function rent() {
+    const rentInput = document.getElementById('rent').value;
+    if (rentInput >= 0) {
+        document.getElementById('error-rent').style.display = "none";
+    }
+    else if (rentInput < 0) {
+        document.getElementById('error-rent').style.display = "block";
+    }
+    else if (rentInput != "number") {
+        document.getElementById('error-rent').style.display = "block";
+    }
+
+    return parseInt(rentInput);
+}
+function clothes() {
+    const clothesInput = document.getElementById('clothes').value;
+    if (clothesInput >= 0) {
+        document.getElementById('error-clothes').style.display = "none";
+    }
+    else if (clothesInput < 0) {
+        document.getElementById('error-clothes').style.display = "block";
+    }
+    else if (clothesInput != "number") {
+        document.getElementById('error-clothes').style.display = "block";
+    }
+
+    return parseInt(clothesInput);
+}
+
+
+
 // Total Expenses
 function expenses() {
-    const food = parseInt(document.getElementById('food').value)
-    const rent = parseInt(document.getElementById('rent').value)
-    const clothes = parseInt(document.getElementById('clothes').value)
-    totalExpenses = food + rent + clothes;
-
+    totalExpenses = food() + rent() + clothes();
     return totalExpenses;
 }
+
 // Balance
 function netIncome() {
     const balance = income() - expenses();
     if (income() > expenses()) {
-
+        document.getElementById('error-balance').style.display = "none";
     }
-    else {
+    else if (income() < expenses()) {
+
         document.getElementById('error-balance').style.display = "block";
     }
     return balance;
 }
 
-// calculate click function
+// calculate btn click function
 document.getElementById('calculate').addEventListener("click", function () {
     document.getElementById('total-expenses').innerText = expenses();
     document.getElementById('balance').innerText = netIncome();
-    console.log(income());
-})
-// save click function
-document.getElementById('save').addEventListener("click", function () {
-    const saving = document.getElementById('saving').value;
-    const saveAmount = income() * saving / 100;
-    document.getElementById('save-amount').innerText = saveAmount;
-    const remainingBalance = netIncome() - saveAmount;
-    document.getElementById('remaining-balance').innerText = remainingBalance;
 
+    console.log(food())
+
+})
+
+// Saveing % function
+function saveing() {
+    const savingInput = document.getElementById('saving').value;
+    const saving = savingInput / 100;
+    return saving;
+}
+
+// saveAmount function
+function saveAmount() {
+    const saveOutput = income() * saveing();
+    return saveOutput;
+}
+
+// remainingBalance function
+function remainingBalance() {
+    if (netIncome() > saveAmount()) {
+        remainingBalanceOutput = netIncome() - saveAmount();
+        document.getElementById('error-remaining-balance').style.display = "none";
+    }
+    else {
+        document.getElementById('error-remaining-balance').style.display = "block";
+        remainingBalanceOutput = "";
+    }
+    return remainingBalanceOutput;
+}
+
+// save btn click function
+document.getElementById('save').addEventListener("click", function () {
+    // remainingBalance
+    document.getElementById('remaining-balance').innerText = remainingBalance();
+    // saveAmount 
+    if (netIncome() < saveAmount()) {
+        document.getElementById('error-saving-amount').style.display = "block";
+        document.getElementById('save-amount').innerText = '';
+    }
+    else {
+        document.getElementById('save-amount').innerText = saveAmount();
+        document.getElementById('error-saving-amount').style.display = "none";
+    }
 })

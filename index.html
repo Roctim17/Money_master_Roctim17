@@ -43,6 +43,7 @@
                                     <div class=""><input id="income" class="bg-light input-group-text" type="text">
                                     </div>
                                 </div>
+                                <!-- error massage -->
                                 <h3 id="error-letter"
                                     class="error-letter border rounded bg-warning text-light p-1 m-auto">
                                     please Entar your
@@ -59,6 +60,7 @@
                                     salary Amount
                                 </h3>
                             </div>
+                            <!-- error massage end-->
                             <!-- Expenses -->
                             <div class="p-3">
                                 <h1 class="p-3">Expenses</h1>
@@ -66,16 +68,32 @@
                                     <div class="">
                                         <h3 class="input-group "> Food:</h3>
                                     </div>
-                                    <div class=""><input id="food" class="bg-light input-group-text" type="text"></div>
+                                    <div class=""><input id="food" class="bg-light input-group-text" type="text">
+                                    </div>
 
                                 </div>
+                                <!-- error massage -->
+                                <h3 id="error-food"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    please Entar your
+                                    valid Food Expense
+                                </h3>
+                                <!-- error massage end -->
                                 <div class="d-flex p-3 justify-content-center">
                                     <div class="">
                                         <h3 class="input-group "> Rent:</h3>
                                     </div>
-                                    <div class=""><input id="rent" class="bg-light input-group-text" type="text"></div>
+                                    <div class=""><input id="rent" class="bg-light input-group-text" type="text">
+                                    </div>
 
                                 </div>
+                                <!-- error massage -->
+                                <h3 id="error-rent"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    please Entar your
+                                    valid Rent Expense
+                                </h3>
+                                <!-- error massage end -->
                                 <div class="d-flex p-3 justify-content-center">
                                     <div class="">
                                         <h3 class="input-group "> Clothes:</h3>
@@ -84,19 +102,34 @@
                                     </div>
 
                                 </div>
+                                <!-- error massage -->
+                                <h3 id="error-clothes"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    please Entar your
+                                    valid Clothes Expense
+                                </h3>
+                                <!-- error massage end-->
                             </div>
                             <!-- Expenses End-->
                             <!-- Calculate -->
                             <button id="calculate" class="btn btn-info p-3 m-3 px-5">Calculate</button>
                             <div class="p-5">
-                                <h2 class="pb-3">Total Expenses: <span id="total-expenses">5500</span> </h2>
-                                <h2>Balance: <span id="balance">1500</span>
+                                <h3 id="error-expenses"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    Please fill the Empty field & enter minimun Value 0
+                                </h3>
+                                <h2 class="pb-3">Total Expenses: <span id="total-expenses"></span>
+                                </h2>
+                                <h2>Balance: <span id="balance"></span>
+                                    <!-- error massage -->
                                     <h3 id="error-balance"
                                         class="error-letter border rounded bg-warning text-light p-1 m-auto">
                                         You have not enough Money for Expense
                                     </h3>
+                                    <!-- error massage end-->
                                 </h2>
                             </div>
+
                             <!-- Calculate End-->
                             <!-- Save -->
                             <div class="d-flex justify-content-center">
@@ -121,8 +154,16 @@
                             </div>
                             <!-- Save End -->
                             <div class="p-5">
-                                <h2 class="pb-3">Saving Amount: <span id="save-amount">2000</span> </h2>
-                                <h2>Remaining Balance: <span id="remaining-balance">2500</span> </h2>
+                                <h3 id="error-saving-amount"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    You have not enough Balance
+                                </h3>
+                                <h2 class="pb-3">Saving Amount: <span id="save-amount"></span> </h2>
+                                <h3 id="error-remaining-balance"
+                                    class="error-letter border rounded bg-warning text-light p-1 m-auto">
+                                    You have not enough Balance
+                                </h3>
+                                <h2>Remaining Balance: <span id="remaining-balance"></span> </h2>
                             </div>
                         </div>
 
